@@ -33,7 +33,7 @@ class AuthorsController < ApplicationController
     if @author.update(author_params)
       redirect_to @author
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
