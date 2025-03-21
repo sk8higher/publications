@@ -1,0 +1,15 @@
+<h2 class="mt-3">Статья "<%= @article.orig_name %>"</h2>
+
+<p>Название на языке оригинала: <%= @article.orig_name %></p>
+<p>Название на английском: <%= @article.eng_name %></p>
+<p>Дата публикации: <%= @article.publish_date%></p>
+<p>Идентификатор DOI: <%= @article.doi %></p>
+<p>Журнал: <%= @journal.name %></p>
+<p>Авторы:</p>
+<% @article.authors.each do |author| %>
+  <p><%= author.fullname %></p>
+<% end %>
+
+<%= link_to "Изменить информацию", edit_article_path(@article), class: "btn btn-outline-info mb-3" %>
+<%= link_to "Удалить статью", article_path(@article), data: { "turbo-method": :delete }, class: "btn btn-danger mb-3" %>
+<%= link_to "Назад", articles_path, class: "btn btn-primary mb-3" %>

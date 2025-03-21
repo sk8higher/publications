@@ -1,0 +1,18 @@
+<h1 class="text-center my-3">Все статьи</h1>
+
+<div class="container"></div>
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to "Добавить новую статью", new_article_path, class: "btn btn-outline-success mb-3" %>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <% @articles.each do |article| %>
+    <div class="mt-3">
+      <p>Название: <%= article.orig_name %></p>
+      <%= link_to "Посмотреть информацию", article_path(article), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
