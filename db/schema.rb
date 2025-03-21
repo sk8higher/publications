@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_21_114953) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_21_115209) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_114953) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["journal_id"], name: "index_articles_on_journal_id"
+  end
+
+  create_table "author_reports", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "report_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_author_reports_on_author_id"
+    t.index ["report_id"], name: "index_author_reports_on_report_id"
   end
 
   create_table "authors", force: :cascade do |t|
@@ -83,6 +92,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_114953) do
   add_foreign_key "article_authors", "articles"
   add_foreign_key "article_authors", "authors"
   add_foreign_key "articles", "journals"
+  add_foreign_key "author_reports", "authors"
+  add_foreign_key "author_reports", "reports"
   add_foreign_key "chapter_authors", "authors"
   add_foreign_key "chapter_authors", "chapters"
   add_foreign_key "reports", "authors", column: "speaker_id"
