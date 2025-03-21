@@ -18,6 +18,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'rspec-rails', '~> 7.0.0'
 end
 
 group :development do
