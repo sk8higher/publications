@@ -61,6 +61,10 @@
 
 <div class="row mt-3">
   <div class="col">
-    <%= link_to "Назад", article_path(article), class: "btn btn-outline-primary" %>
+    <% if article.present? && article.id.present? %>
+      <%= link_to "Назад", article_path(article), class: "btn btn-outline-primary" %>
+    <% else %>
+      <%= link_to "Назад", articles_path, class: "btn btn-outline-primary" %>
+    <% end %>
   </div>
 </div>
