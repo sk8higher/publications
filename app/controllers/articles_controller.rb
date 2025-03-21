@@ -26,6 +26,24 @@ class ArticlesController < ApplicationController
     @journal = Journal.find(@article.journal_id)
   end
 
+  def edit
+    @article = Article.find(params[:id])
+    @journals = Journal.all
+    @authors = Author.all
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @journals = Journal.all
+    @authors = Author.all
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit
+    end
+  end
+
   private
 
   def article_params
