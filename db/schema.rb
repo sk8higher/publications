@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_21_093150) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_21_103812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,26 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_093150) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chapter_authors", force: :cascade do |t|
+    t.bigint "chapter_id", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_chapter_authors_on_author_id"
+    t.index ["chapter_id"], name: "index_chapter_authors_on_chapter_id"
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.string "orig_name"
+    t.string "eng_name"
+    t.date "publish_date"
+    t.string "publisher"
+    t.string "isbn"
+    t.integer "pages"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "journals", force: :cascade do |t|
     t.string "name"
     t.string "issn"
@@ -51,4 +71,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_093150) do
   add_foreign_key "article_authors", "articles"
   add_foreign_key "article_authors", "authors"
   add_foreign_key "articles", "journals"
+  add_foreign_key "chapter_authors", "authors"
+  add_foreign_key "chapter_authors", "chapters"
 end
