@@ -7,4 +7,9 @@ class Author < ApplicationRecord
 
   has_many :chapter_authors
   has_many :chapters, through: :chapter_authors
+
+  has_many :report_authors
+  has_many :reports, through: :report_authors
+
+  has_many :presented_reports, class_name: 'Report', foreign_key: 'speaker_id'
 end
