@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_21_103812) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_21_114953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,9 +68,22 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_103812) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.string "orig_name"
+    t.string "eng_name"
+    t.date "publish_date"
+    t.string "conference_name"
+    t.string "conference_location"
+    t.bigint "speaker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["speaker_id"], name: "index_reports_on_speaker_id"
+  end
+
   add_foreign_key "article_authors", "articles"
   add_foreign_key "article_authors", "authors"
   add_foreign_key "articles", "journals"
   add_foreign_key "chapter_authors", "authors"
   add_foreign_key "chapter_authors", "chapters"
+  add_foreign_key "reports", "authors", column: "speaker_id"
 end
