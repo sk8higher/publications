@@ -38,7 +38,7 @@ class ReportsController < ApplicationController
     if @report.update(report_params)
       redirect_to @report
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

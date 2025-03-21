@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :author do
     fullname { 'Иван Иванов' }
-    orcid { '0000-0000-0000-000X' }
+    sequence(:orcid) do |n|
+      "0000-0001-#{format('%04d', n)}-#{rand(1000..9999).to_s.last(4)}"
+    end
   end
 end
