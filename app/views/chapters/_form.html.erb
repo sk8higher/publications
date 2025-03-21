@@ -1,0 +1,67 @@
+<%= form_with(model: chapter, data: { turbo: false }, class: "form-width-avg") do |form| %>
+  <% if chapter.errors.any? %>
+    <div class="alert alert-danger">
+      <h2>Ошибки: </h2>
+      <ul>
+        <% chapter.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row mb-3 w-50">
+    <div class="col">
+      <%= form.label :orig_name, "Название на языке оригинала" %>
+      <%= form.text_field :orig_name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3 w-50">
+    <div class="col">
+      <%= form.label :eng_name, "Название на английском" %>
+      <%= form.text_field :eng_name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3 w-50">
+    <div class="col">
+      <%= form.label :publish_date, "Дата публикации" %>
+      <%= form.date_field :publish_date, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3 w-50">
+    <div class="col">
+      <%= form.label :publisher, "Издатель" %>
+      <%= form.text_field :publisher, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3 w-50">
+    <div class="col">
+      <%= form.label :isbn, "Идентификатор ISBN" %>
+      <%= form.text_field :isbn, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3 w-50">
+    <div class="col">
+      <%= form.label :pages, "Количество страниц" %>
+      <%= form.text_field :pages, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3 w-50">
+    <div class="col">
+      <%= form.label :author_ids, "Авторы" %>
+      <%= form.select :author_ids, authors.map { |a| [a.fullname, a.id] }, {}, multiple: true, class: "form-select" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-15">
+    <div class="col">
+      <%= form.submit text, class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

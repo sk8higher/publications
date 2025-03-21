@@ -1,0 +1,15 @@
+<h2 class="mt-3">Глава "<%= @chapter.orig_name %>"</h2>
+
+<p>Название на языке оригинала: <%= @chapter.orig_name %></p>
+<p>Название на английском: <%= @chapter.eng_name %></p>
+<p>Дата публикации: <%= @chapter.publish_date %></p>
+<p>Идентификатор ISBN: <%= @chapter.isbn %></p>
+<p>Количество страниц: <%= @chapter.pages %></p>
+<p>Авторы:</p>
+<% @chapter.authors.each do |author| %>
+  <p><%= author.fullname %></p>
+<% end %>
+
+<%= link_to "Изменить информацию", edit_chapter_path(@chapter), class: "btn btn-outline-info mb-3" %>
+<%= link_to "Удалить статью", chapter_path(@chapter), data: { "turbo-method": :delete }, class: "btn btn-danger mb-3" %>
+<%= link_to "Назад", chapters_path, class: "btn btn-primary mb-3" %>

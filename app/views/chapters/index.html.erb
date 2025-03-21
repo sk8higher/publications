@@ -1,0 +1,16 @@
+<h2 class="text-center my-3">Все главы книг</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to "Добавить новую главу", new_chapter_path, class: "btn btn-outline-success mb-3" %>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <% @chapters.each do |chapter| %>
+    <p>Название: <%= chapter.orig_name %></p>
+    <%= link_to "Посмотреть информацию", chapter_path(chapter), class: "btn btn-primary" %>
+  <% end %>
+</div>
