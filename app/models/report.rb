@@ -6,5 +6,5 @@ class Report < ApplicationRecord
 
   belongs_to :speaker, class_name: 'Author', foreign_key: 'speaker_id'
 
-  validates :orig_name, :eng_name, :publish_date, :conference_name, :conference_location, presence: true
+  validates :orig_name, :eng_name, :publish_date, :conference_name, :conference_location, :authors, presence: true
 end

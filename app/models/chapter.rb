@@ -4,7 +4,7 @@ class Chapter < ApplicationRecord
   has_many :chapter_authors, dependent: :destroy
   has_many :authors, through: :chapter_authors
 
-  validates :orig_name, :eng_name, :publish_date, :isbn, :publisher, :pages, presence: true
+  validates :orig_name, :eng_name, :publish_date, :isbn, :publisher, :pages, :authors, presence: true
   validate :valid_isbn_format
 
   private
