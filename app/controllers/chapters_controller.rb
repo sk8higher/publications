@@ -38,6 +38,14 @@ class ChaptersController < ApplicationController
     end
   end
 
+  def destroy
+    @chapter = Chapter.find(params[:id])
+
+    @chapter.destroy
+
+    redirect_to chapters_path
+  end
+
   private
 
   def chapter_params
