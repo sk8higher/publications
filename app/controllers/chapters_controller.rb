@@ -36,7 +36,7 @@ class ChaptersController < ApplicationController
     if @chapter.update(chapter_params)
       redirect_to @chapter
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
