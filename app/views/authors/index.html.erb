@@ -1,0 +1,18 @@
+<h1 class="text-center my-3">Все авторы</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+        <%= link_to "Добавить нового автора", new_author_path, class: "btn btn-outline-success mb-3" %>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <% @authors.each do |author| %>
+    <div class="mt-3">
+      <p>ФИО: <%= author.fullname %></p>
+      <%= link_to "Посмотреть информацию", author_path(author), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
