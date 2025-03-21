@@ -1,0 +1,8 @@
+<h2 class="mt-3">Журнал</h2>
+
+<p>Название: <%= @journal.name %></p>
+<p>ISSN: <%= @journal.issn %></p>
+
+<%= link_to "Изменить информацию", edit_journal_path(@journal), class: "btn btn-outline-info mb-3" %>
+<%= link_to "Удалить журнал", journal_path(@journal), data: { "turbo-method": :delete }, class: "btn btn-danger mb-3" %>
+<%= link_to "Назад", journals_path, class: "btn btn-primary mb-3" %>
