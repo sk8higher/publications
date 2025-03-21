@@ -33,7 +33,7 @@ class JournalsController < ApplicationController
     if @journal.update(journal_params)
       redirect_to @journal
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
