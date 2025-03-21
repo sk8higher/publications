@@ -1,0 +1,16 @@
+<h2 class="mt-3">Доклад "<%= @report.orig_name%>"</h2>
+
+<p>Название на языке оригинала: <%= @report.orig_name %></p>
+<p>Название на английском: <%= @report.eng_name %></p>
+<p>Дата публикации: <%= @report.publish_date %></p>
+<p>Название конференции: <%= @report.conference_name %></p>
+<p>Место проведения конференции: <%= @report.conference_location %></p>
+<p>Докладчик: <%= @author.fullname %></p>
+<p>Авторы: </p>
+<% @report.authors.each do |author| %>
+  <p><%= author.fullname %></p>
+<% end %>
+
+<%= link_to "Изменить информацию", edit_report_path(@report), class: "btn btn-outline-info mb-3" %>
+<%= link_to "Удалить доклад", report_path(@report), data: { "turbo-method": :delete }, class: "btn btn-danger mb-3" %>
+<%= link_to "Назад", reports_path, class: "btn btn-primary mb-3" %>

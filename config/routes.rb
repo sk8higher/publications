@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :journals
   resources :articles
   resources :chapters
+  resources :reports
 end

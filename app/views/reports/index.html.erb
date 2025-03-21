@@ -1,0 +1,18 @@
+<h1 class="text-center mt-3">Все доклады</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+        <%= link_to "Добавить новый доклад", new_report_path, class: "btn btn-outline-success mb-3" %>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <% @reports.each do |report| %>
+    <div class="mt-3">
+      <p>Название: <%= report.orig_name %></p>
+      <%= link_to "Посмотреть информацию", report_path(report), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
