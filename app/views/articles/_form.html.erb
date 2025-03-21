@@ -47,7 +47,7 @@
 
   <div class="form-group row mb-3 w-50">
     <div class="col">
-      <%= form.label :author_ids, "Авторы" %>
+      <%= form.label :author_ids, "Авторы (зажмите Ctrl для выбора нескольких)" %>
       <%= form.select :author_ids, authors.map { |a| [a.fullname, a.id] }, {}, multiple: true, class: "form-select" %>
     </div>
   </div>
