@@ -4,4 +4,7 @@ class Author < ApplicationRecord
 
   has_many :article_authors
   has_many :articles, through: :article_authors
+
+  has_many :chapter_authors
+  has_many :chapters, through: :chapter_authors
 end
