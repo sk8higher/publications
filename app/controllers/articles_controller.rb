@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
@@ -55,6 +57,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:orig_name, :eng_name, :publish_date, :doi, :journal_id, :author_ids => [])
+    params.require(:article).permit(:orig_name, :eng_name, :publish_date, :doi, :journal_id, author_ids: [])
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChaptersController < ApplicationController
   def index
     @chapters = Chapter.all
@@ -49,6 +51,6 @@ class ChaptersController < ApplicationController
   private
 
   def chapter_params
-    params.require(:chapter).permit(:orig_name, :eng_name, :publish_date, :publisher, :isbn, :pages, :author_ids => [])
+    params.require(:chapter).permit(:orig_name, :eng_name, :publish_date, :publisher, :isbn, :pages, author_ids: [])
   end
 end

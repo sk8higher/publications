@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Author < ApplicationRecord
   validates :fullname, presence: true
   validates :orcid, presence: true, uniqueness: true, format: { with: /\A\d{4}-\d{4}-\d{4}-\d{3}[0-9X]\z/ }

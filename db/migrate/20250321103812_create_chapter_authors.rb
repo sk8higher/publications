@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateChapterAuthors < ActiveRecord::Migration[7.1]
   def change
     create_table :chapter_authors do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JournalsController < ApplicationController
   def index
     @journals = Journal.all
@@ -28,7 +30,7 @@ class JournalsController < ApplicationController
   def update
     @journal = Journal.find(params[:id])
 
-    if @journal .update(journal_params)
+    if @journal.update(journal_params)
       redirect_to @journal
     else
       render :edit

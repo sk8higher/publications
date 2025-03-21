@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Report < ApplicationRecord
   has_many :author_reports, dependent: :destroy
   has_many :authors, through: :author_reports

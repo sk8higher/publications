@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   def index
     @reports = Report.all
@@ -51,6 +53,7 @@ class ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit(:orig_name, :eng_name, :publish_date, :conference_name, :conference_location, :speaker_id, :author_ids => [])
+    params.require(:report).permit(:orig_name, :eng_name, :publish_date, :conference_name, :conference_location,
+                                   :speaker_id, author_ids: [])
   end
 end

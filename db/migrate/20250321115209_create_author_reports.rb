@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAuthorReports < ActiveRecord::Migration[7.1]
   def change
     create_table :author_reports do |t|
