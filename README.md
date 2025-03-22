@@ -1,24 +1,15 @@
-# README
+# Запуск приложения
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Нужны .env.local и .env.local.test
 
-Things you may want to cover:
+.env.local
 
-* Ruby version
+`DATABASE_URL=postgresql://postgres:password@postgres:5432/publications_development`
 
-* System dependencies
+.env.test.local
 
-* Configuration
+`DATABASE_URL=postgresql://postgres:password@postgres:5432/publications_test`
 
-* Database creation
+Для запуска
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`docker compose up`
